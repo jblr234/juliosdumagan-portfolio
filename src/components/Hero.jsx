@@ -144,7 +144,7 @@ export default function Hero() {
               
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-                alt="Gary Luis Alquiza portrait"
+                alt="Julios Gabriel Dumagan portrait"
                 className="w-full h-full object-cover object-top grayscale contrast-125 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
               />
 
@@ -154,8 +154,8 @@ export default function Hero() {
               {/* Portrait badge */}
               <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between text-cream">
                 <div>
-                  <p className="text-[11px] font-mono uppercase tracking-wider text-cream/70">Designer & Developer</p>
-                  <p className="font-syne font-bold text-sm tracking-wide">GARY ALQUIZA</p>
+                  <p className="text-[11px] font-mono uppercase tracking-wider text-cream/70">Designer &amp; Developer</p>
+                  <p className="font-syne font-bold text-sm tracking-wide">JULIOS DUMAGAN</p>
                 </div>
                 <div className="w-6 h-6 rounded-full bg-coral flex items-center justify-center text-white">
                   <Sparkles className="w-3.5 h-3.5" />

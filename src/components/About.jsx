@@ -58,7 +58,7 @@ export default function About() {
               <span>Biography &amp; Architecture</span>
             </div>
             <h2 className="display-title text-5xl sm:text-7xl md:text-8xl text-charcoal">
-              ABOUT GARY
+              ABOUT JULIOS
             </h2>
           </div>
           <div className="mt-4 md:mt-0 flex items-center gap-2 text-xs font-mono text-muted uppercase">
@@ -75,7 +75,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden border border-charcoal/15 bg-charcoal shadow-xl group">
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
-                alt="Gary Luis Alquiza creative workspace"
+                alt="Julios Gabriel Dumagan creative workspace"
                 className="w-full h-80 sm:h-96 object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-80" />

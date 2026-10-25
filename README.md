@@ -1,6 +1,6 @@
-# Gary Luis Alquiza — Premium Creative Portfolio (v1)
+# Julios Gabriel Dumagan — Premium Creative Portfolio (v1)
 
-> **Live Demo:** [garyalquiza-portfolio.vercel.app](https://garyalquiza-portfolio.vercel.app)  
+> **Live Demo:** [juliosdumagan-portfolio.vercel.app](https://juliosdumagan-portfolio.vercel.app)  
 > **Course:** Q2 — Portfolio v1: The Foundation  
 > **Institution:** Cor Jesu College (CJC) — Department of Information Technology & Computer Science  
 > **Design Reference:** Inspired by [Bogdan Kolomiyets](https://bogdankolomiyets.com/)
@@ -38,11 +38,11 @@ The site presents an intentional balance of:
 
 | Rubric Section | Implementation | Status |
 | :--- | :--- | :---: |
-| **1. Hero** | Name (Gary Luis Alquiza), tagline, art-directed portrait overlapping typography, dual CTA buttons ("Explore Selected Work" & "Get in Touch"), scroll indicator | ✅ Complete |
+| **1. Hero** | Name (Julios Gabriel Dumagan), tagline, art-directed portrait overlapping typography, dual CTA buttons ("Explore Selected Work" & "Get in Touch"), scroll indicator | ✅ Complete |
 | **2. About** | 1–2 paragraph bio: who you are, what you're learning (GSAP choreographies & React), where you're based (Digos City, PH • Cor Jesu College), stats & skills taxonomy | ✅ Complete |
 | **3. Projects** | At least 3 Q1 React/GSAP mini-projects with title, description, tech stack, rich visual cards, interactive live sandbox modal, GitHub repo links, and demo links | ✅ Complete |
-| **4. Contact** | Functional contact form with real-time validation, status states, celebratory confetti, plus direct Email (`garyalquiza@g.cjc.edu.ph`), GitHub, and LinkedIn links | ✅ Complete |
-| **5. Footer** | Copyright Gary Luis Alquiza, live Philippine Standard Time (PST GMT+8) clock, social icons, and smooth GSAP back-to-top button | ✅ Complete |
+| **4. Contact** | Functional contact form with real-time validation, status states, celebratory confetti, plus direct Email (`juliosdumagan@g.cjc.edu.ph`), GitHub, and LinkedIn links | ✅ Complete |
+| **5. Footer** | Copyright Julios Gabriel Dumagan, live Philippine Standard Time (PST GMT+8) clock, social icons, and smooth GSAP back-to-top button | ✅ Complete |
 | **Technical Specs** | React (Vite), React Router, Component architecture, Tailwind CSS, mobile-first responsive design, GSAP animations, no broken links | ✅ Complete |
 | **Git & Commits** | At least 10 meaningful, semantic commits in Git history | ✅ Complete |
 
@@ -53,19 +53,19 @@ The site presents an intentional balance of:
 ### 1. Kinetic Type & Soundscape
 - **Description:** Experimental audio-visual sandbox where letterforms distort dynamically based on user interaction, paired with a procedural Web Audio API harmonic oscillator.
 - **Tech Stack:** React 19, GSAP Timelines, Web Audio API, Tailwind CSS, Canvas
-- **GitHub:** [github.com/garyalquiza/kinetic-soundscape](https://github.com/garyalquiza/kinetic-soundscape)
+- **GitHub:** [github.com/juliosdumagan/kinetic-soundscape](https://github.com/juliosdumagan/kinetic-soundscape)
 - **Live Demo:** In-app interactive simulation modal + standalone link
 
 ### 2. Aura Editorial Archive
 - **Description:** Luxury fashion archive inspired by European high-fashion publications featuring GSAP ScrollTrigger pinned horizontal scrub sequences and clip-path polygon reveals.
 - **Tech Stack:** React, GSAP ScrollTrigger, CSS Masking, Vite, Responsive Design
-- **GitHub:** [github.com/garyalquiza/aura-editorial](https://github.com/garyalquiza/aura-editorial)
+- **GitHub:** [github.com/juliosdumagan/aura-editorial](https://github.com/juliosdumagan/aura-editorial)
 - **Live Demo:** In-app interactive simulation modal + standalone link
 
 ### 3. Prism Studio Dashboard
 - **Description:** Ultra-minimalist creative workspace and sprint velocity tracker with animated hardware-accelerated SVG metrics and keyboard-friendly task checklist.
 - **Tech Stack:** React 19, GSAP Motion, Tailwind CSS, Lucide Icons, Client State
-- **GitHub:** [github.com/garyalquiza/prism-dashboard](https://github.com/garyalquiza/prism-dashboard)
+- **GitHub:** [github.com/juliosdumagan/prism-dashboard](https://github.com/juliosdumagan/prism-dashboard)
 - **Live Demo:** In-app interactive simulation modal + standalone link
 
 ---
@@ -79,10 +79,10 @@ The site presents an intentional balance of:
 ### Step 1: Open Project in Visual Studio Code
 Open your terminal or PowerShell and run:
 ```bash
-cd C:\Users\garya\.gemini\antigravity\scratch\garyalquiza-portfolio
+cd "C:\Users\garya\.gemini\antigravity\scratch\DUMAGAN PORTFOLIO"
 code .
 ```
-*(Or in VS Code, go to `File` > `Open Folder...` and select `C:\Users\garya\.gemini\antigravity\scratch\garyalquiza-portfolio`)*
+*(Or in VS Code, go to `File` > `Open Folder...` and select `C:\Users\garya\.gemini\antigravity\scratch\DUMAGAN PORTFOLIO`)*
 
 ### Step 2: Install Dependencies
 ```bash
@@ -106,16 +106,16 @@ The optimized bundle will be compiled to the `/dist` directory.
 ## 🚢 Deployment Guide (Vercel)
 
 ### Option A: Via GitHub (Recommended)
-1. Push this repository to your GitHub account:
+1. Push this repository to your friend's or your GitHub account:
    ```bash
-   git remote add origin https://github.com/garyalquiza/portfolio.git
+   git remote add origin https://github.com/juliosdumagan/portfolio.git
    git branch -M main
    git push -u origin main
    ```
-2. Go to [Vercel](https://vercel.com) and log in with your GitHub account.
-3. Click **Add New** > **Project** and select `portfolio` (or `garyalquiza-portfolio`).
+2. Go to [Vercel](https://vercel.com) and log in with GitHub.
+3. Click **Add New** > **Project** and select `portfolio` (or `DUMAGAN PORTFOLIO`).
 4. Framework Preset will auto-detect as **Vite**.
-5. Click **Deploy**. Your site will be live at `garyalquiza-portfolio.vercel.app`!
+5. Click **Deploy**. The site will be live at `juliosdumagan-portfolio.vercel.app`!
 
 ### Option B: Via Vercel CLI
 ```bash
@@ -133,7 +133,7 @@ src/
 ├── App.jsx                  # React Router configuration & GSAP ScrollTrigger refresh
 ├── index.css                # Tailwind directives, editorial masks, and scrollbars
 ├── data/
-│   └── portfolioData.js     # Gary's bio, projects, services, stats, FAQ, socials
+│   └── portfolioData.js     # Julios' bio, projects, services, stats, FAQ, socials
 ├── utils/
 │   └── confetti.js          # Zero-dependency canvas particle celebration
 └── components/
@@ -154,8 +154,8 @@ src/
 
 ## 👤 Author
 
-**Gary Luis Alquiza**  
+**Julios Gabriel Dumagan**  
 - Institution: Cor Jesu College (CJC)  
-- Email: [garyalquiza@g.cjc.edu.ph](mailto:garyalquiza@g.cjc.edu.ph)  
-- GitHub: [@garyalquiza](https://github.com/garyalquiza)  
-- LinkedIn: [garyalquiza](https://linkedin.com/in/garyalquiza)
+- Email: [juliosdumagan@g.cjc.edu.ph](mailto:juliosdumagan@g.cjc.edu.ph)  
+- GitHub: [@juliosdumagan](https://github.com/juliosdumagan)  
+- LinkedIn: [juliosdumagan](https://linkedin.com/in/juliosdumagan)

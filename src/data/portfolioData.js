@@ -1,14 +1,14 @@
 export const personalData = {
-  name: "Gary Luis Alquiza",
-  wordmark: "GARY ALQUIZA",
+  name: "Julios Gabriel Dumagan",
+  wordmark: "JULIOS DUMAGAN",
   role: "Creative Developer & Motion Designer",
   location: "Digos City, Philippines",
   institution: "Cor Jesu College (CJC)",
   status: "Available for Q2 / Q3 2026 Projects",
-  email: "garyalquiza@g.cjc.edu.ph",
-  github: "https://github.com/garyalquiza",
-  githubRepo: "https://github.com/garyalquiza/portfolio",
-  linkedin: "https://linkedin.com/in/garyalquiza",
+  email: "juliosdumagan@g.cjc.edu.ph",
+  github: "https://github.com/juliosdumagan",
+  githubRepo: "https://github.com/juliosdumagan/portfolio",
+  linkedin: "https://linkedin.com/in/juliosdumagan",
   bioParagraphs: [
     "I am an independent creative developer and computer science scholar based in Digos City, Philippines, studying at Cor Jesu College. I build at the intersection of bold editorial graphic design and resilient web engineering.",
     "Currently engineering immersive digital experiences using React 19, GSAP 3, and modern CSS architecture. My focus centers on oversized typography, smooth scroll-driven storytelling, tactile micro-interactions, and accessible, conversion-driven web design."
@@ -40,8 +40,8 @@ export const projectsData = [
     color: "#FF6046",
     accentBg: "bg-[#1E1A17]",
     previewBg: "from-[#2A1F1D] to-[#121212]",
-    liveDemoUrl: "https://garyalquiza-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/garyalquiza/kinetic-soundscape",
+    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
+    githubUrl: "https://github.com/juliosdumagan/kinetic-soundscape",
     features: [
       "Custom GSAP draggable and elastic typography nodes",
       "Real-time harmonic synthesizer with Web Audio oscillator",
@@ -62,8 +62,8 @@ export const projectsData = [
     color: "#E2BA84",
     accentBg: "bg-[#1B1816]",
     previewBg: "from-[#251E18] to-[#101010]",
-    liveDemoUrl: "https://garyalquiza-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/garyalquiza/aura-editorial",
+    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
+    githubUrl: "https://github.com/juliosdumagan/aura-editorial",
     features: [
       "Pinned multi-panel horizontal scrub with dynamic viewport calculation",
       "Smooth clip-path polygon reveals synchronized with scroll momentum",
@@ -84,8 +84,8 @@ export const projectsData = [
     color: "#7BE0AD",
     accentBg: "bg-[#141A17]",
     previewBg: "from-[#13241B] to-[#0D1210]",
-    liveDemoUrl: "https://garyalquiza-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/garyalquiza/prism-dashboard",
+    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
+    githubUrl: "https://github.com/juliosdumagan/prism-dashboard",
     features: [
       "Hardware-accelerated SVG sparkline data transitions",
       "Instant keyboard shortcuts for navigation and task creation",

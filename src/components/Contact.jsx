@@ -317,7 +317,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] font-mono uppercase text-muted-light tracking-wider block">GitHub Profile</span>
                     <span className="font-mono text-sm text-cream font-medium group-hover:text-coral transition-colors">
-                      github.com/garyalquiza
+                      github.com/juliosdumagan
                     </span>
                   </div>
                 </div>
@@ -338,7 +338,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] font-mono uppercase text-muted-light tracking-wider block">LinkedIn Network</span>
                     <span className="font-mono text-sm text-cream font-medium group-hover:text-coral transition-colors">
-                      linkedin.com/in/garyalquiza
+                      linkedin.com/in/juliosdumagan
                     </span>
                   </div>
                 </div>

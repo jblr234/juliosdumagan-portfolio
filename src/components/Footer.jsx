@@ -100,7 +100,7 @@ export default function Footer() {
             <a
               href={`mailto:${personalData.email}`}
               className="hover:text-coral transition-colors flex items-center gap-1"
-              aria-label="Email Gary"
+              aria-label="Email Julios"
             >
               <Mail className="w-4 h-4" />
               <span>Email</span>

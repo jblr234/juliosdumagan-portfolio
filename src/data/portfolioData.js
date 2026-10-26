@@ -1,3 +1,5 @@
+import kritaAnimationVideo from '../../lv_0_20260525211319.mp4';
+
 export const personalData = {
   name: "Julios Gabriel Dumagan",
   wordmark: "JULIOS DUMAGAN",
@@ -6,12 +8,13 @@ export const personalData = {
   institution: "Cor Jesu College (CJC)",
   status: "Available for Q2 / Q3 2026 Projects",
   email: "juliosdumagan@g.cjc.edu.ph",
-  github: "https://github.com/juliosdumagan",
-  githubRepo: "https://github.com/juliosdumagan/portfolio",
-  linkedin: "https://linkedin.com/in/juliosdumagan",
+  emailUrl: "https://mail.google.com/mail/u/0/#inbox",
+  github: "https://github.com/jblr234",
+  githubRepo: "https://github.com/jblr234",
+  linkedin: "https://www.linkedin.com/in/julios-gabriel-dumagan-138067447/",
   bioParagraphs: [
-    "I am an independent creative developer and computer science scholar based in Digos City, Philippines, studying at Cor Jesu College. I build at the intersection of bold editorial graphic design and resilient web engineering.",
-    "Currently engineering immersive digital experiences using React 19, GSAP 3, and modern CSS architecture. My focus centers on oversized typography, smooth scroll-driven storytelling, tactile micro-interactions, and accessible, conversion-driven web design."
+    "I am an independent creative developer and BSIT student based in Digos City, Philippines, studying at Cor Jesu College. I work between two worlds: AI that detects and tracks, and interfaces that make that intelligence easy to read.",
+    "My capstone, VigiTrack, is an unattended-object monitoring system built on YOLOv8 and ByteTrack, with a Flask dashboard for live camera feeds and incident logs. Beyond it, I build AR experiences in Unity, draw and animate in Krita, and use React 19 and GSAP 3 to give my web work motion with intention."
   ],
   stats: [
     { value: "03+", label: "Q1 React & GSAP Projects", detail: "Custom designed and coded from scratch" },
@@ -20,106 +23,150 @@ export const personalData = {
     { value: "100%", label: "Craft & Accessible Code", detail: "WCAG contrast & reduced-motion compliant" },
   ],
   skills: [
-    { category: "Core Technologies", items: ["React 19", "JavaScript (ES6+)", "Vite", "HTML5 Semantics", "Tailwind CSS"] },
-    { category: "Motion & Graphics", items: ["GSAP 3", "ScrollTrigger", "Timeline Choreography", "SVG Manipulation", "Canvas"] },
-    { category: "Design & UX", items: ["Editorial Art Direction", "Typography Hierarchy", "Responsive Design", "Figma", "Design Tokens"] },
-    { category: "Engineering & Tooling", items: ["Git & GitHub Workflow", "Vercel / Netlify CI/CD", "Component Architecture", "Performance Tuning"] },
+    { category: "AI & Vision", items: ["Python", "YOLOv8", "ByteTrack", "OpenCV"] },
+    { category: "Web & Backend", items: ["React 19", "GSAP 3", "Flask", "SQLite"] },
+    { category: "Creative", items: ["Unity", "Vuforia", "Krita"] },
   ]
 };
 
 export const projectsData = [
   {
-    id: "kinetic-type",
-    title: "KINETIC TYPE & SOUNDSCAPE",
-    category: "Interactive Audio-Visual Sandbox",
+    id: "hci-cjc-booking",
+    title: "GALIOSCOPE — CAMPUS FACILITIES BOOKING",
+    category: "HCI Interactive Figma Prototype • Cor Jesu College",
     year: "2026",
-    badge: "Featured Q1 Project",
-    shortDesc: "An experimental editorial sandbox exploring sound-reactive typography and physics-based cursor interactions powered by React and GSAP Timelines.",
-    fullDesc: "Kinetic Type & Soundscape is an experimental interactive experience where letterforms react dynamically to user mouse velocity, click pressure, and procedural sound synthesis. The project demonstrates advanced GSAP timeline orchestration, SVG text path manipulation, and Web Audio API integration with 60 FPS fluidity.",
-    tech: ["React 19", "GSAP Timelines", "Web Audio API", "Tailwind CSS", "Canvas Physics"],
+    badge: "Featured HCI Prototype",
+    shortDesc: "An interactive Human-Computer Interaction (HCI) Figma prototype designed for exploring, inspecting, and booking campus facilities across Cor Jesu College (CJC) in Digos City. Features a 60+ frame multi-branch user flow covering the College Clinic, laboratories, audio-visual rooms, and student spaces.",
+    fullDesc: "Developed as a comprehensive Human-Computer Interaction (HCI) design project for Cor Jesu College, Inc., GALIOSCOPE (HCI—Booking) reimagines how students, faculty, and staff discover, inspect, and reserve campus facilities. Spanning over 60 interconnected Figma frames across 6 major facility branches—including the College Clinic, Computer & Science Laboratories, Audio-Visual Rooms (AVR), Library Learning Commons, and Activity Halls—the prototype guides users from onboarding and visual room tours to real-time schedule availability, capacity guidelines, and step-by-step booking confirmation.",
+    tech: [
+      "Figma Prototyping",
+      "Human-Computer Interaction (HCI)",
+      "UI/UX Wireframing",
+      "Interactive User Flows",
+      "Design Systems"
+    ],
     color: "#FF6046",
     accentBg: "bg-[#1E1A17]",
-    previewBg: "from-[#2A1F1D] to-[#121212]",
-    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/juliosdumagan/kinetic-soundscape",
+    previewBg: "from-[#1E293B] to-[#0F172A]",
+    image: "/hci-booking-1.png",
+    secondaryImage: "/hci-booking-2.png",
+    liveDemoUrl: "https://www.figma.com/design/ghRyR0qQiTPpAI8917pZeG/HCI--Booking?node-id=0-1&p=f&t=69HXREeHRrbjsT8A-0",
+    githubUrl: "https://www.figma.com/design/ghRyR0qQiTPpAI8917pZeG/HCI--Booking?node-id=0-1&p=f&t=69HXREeHRrbjsT8A-0",
+    isFigma: true,
     features: [
-      "Custom GSAP draggable and elastic typography nodes",
-      "Real-time harmonic synthesizer with Web Audio oscillator",
-      "Dynamic kerning and line-height distortion based on cursor distance",
-      "Zero-latency audio-visual feedback loops"
+      "60+ interconnected high-fidelity Figma frames with smart-animate transitions & branching flows",
+      "Complete visual directory of Cor Jesu College facilities (College Clinic, Labs, AVR, Library & Halls)",
+      "End-to-end facility reservation workflow: room inspection, schedule checking, and booking confirmation",
+      "User-centered HCI architecture built around accessibility, clear visual hierarchy, and campus usability"
     ],
-    interactiveType: "kinetic"
+    interactiveType: "hci-booking"
   },
   {
-    id: "aura-editorial",
-    title: "AURA EDITORIAL ARCHIVE",
-    category: "Luxury Fashion & Pinned Scroll Scrub",
+    id: "krita-digital-animation",
+    title: "2D FRAME-BY-FRAME ANIMATION — KRITA",
+    category: "Digital Drawing & 2D Animation • IT Professional Elective 3",
     year: "2026",
-    badge: "ScrollTrigger Showcase",
-    shortDesc: "A high-fashion digital publication inspired by contemporary European editorial design with GSAP ScrollTrigger pinned horizontal scrubbing.",
-    fullDesc: "Aura Editorial Archive challenges standard web conventions by turning a traditional digital catalog into an immersive spatial storytelling sequence. Using GSAP ScrollTrigger pinned horizontal scroll scrubbing, masked image reveals, and staggered typography entrances, it crafts a tactile magazine-like experience.",
-    tech: ["React", "GSAP ScrollTrigger", "CSS Masking", "Vite", "Responsive Design"],
+    badge: "IT Elective 3 Final Project",
+    shortDesc: "An original hand-drawn 2D animated short film created in Krita as the final capstone project for IT Professional Elective 3 (Digital Drawing) at Cor Jesu College. Features custom frame-by-frame character, aircraft, and environmental illustration.",
+    fullDesc: "Created as the culminating final project for IT Professional Elective 3 (Digital Drawing) at Cor Jesu College, this 38-second 2D animated film was illustrated and animated frame-by-frame in Krita. The piece blends expressive monochrome brushwork, layered atmospheric depth, and selective color accents—following a skybound aircraft towing a 'FILM' banner across a hand-painted mountain range and urban skyline. Every scene was story-boarded, inked, shaded, and timed using Krita's animation timeline and onion-skinning workflow.",
+    tech: [
+      "Krita",
+      "2D Frame-by-Frame Animation",
+      "Digital Drawing & Illustration",
+      "Storyboarding & Timing",
+      "IT Professional Elective 3"
+    ],
     color: "#E2BA84",
     accentBg: "bg-[#1B1816]",
     previewBg: "from-[#251E18] to-[#101010]",
-    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/juliosdumagan/aura-editorial",
+    videoUrl: kritaAnimationVideo,
+    driveUrl: "https://drive.google.com/file/d/1VD8wNiXke1iJaR81fwlDrjU2gA4BUWrc/view?usp=drive_link",
+    liveDemoUrl: "https://drive.google.com/file/d/1VD8wNiXke1iJaR81fwlDrjU2gA4BUWrc/view?usp=drive_link",
+    githubUrl: "https://drive.google.com/file/d/1VD8wNiXke1iJaR81fwlDrjU2gA4BUWrc/view?usp=drive_link",
+    isVideoProject: true,
     features: [
-      "Pinned multi-panel horizontal scrub with dynamic viewport calculation",
-      "Smooth clip-path polygon reveals synchronized with scroll momentum",
-      "Editorial metadata overlays with responsive typography scaling",
-      "Degrades gracefully on touch and reduced-motion environments"
+      "Hand-drawn frame-by-frame 2D animation illustrated and timed in Krita",
+      "Final Project for IT Professional Elective 3 (Digital Drawing) at Cor Jesu College",
+      "Multi-layer background painting with expressive monochrome mountains, cityscape, and color accents",
+      "Custom onion-skin keyframing, motion arcs, and atmospheric cloud & flight sequences"
     ],
-    interactiveType: "horizontal"
+    interactiveType: "krita-video"
   },
   {
-    id: "prism-dashboard",
-    title: "PRISM STUDIO DASHBOARD",
-    category: "Minimalist Motion Analytics Workspace",
+    id: "q1-gsap-mini-project",
+    title: "KINETIC RESONANCE — Q1 REACT & GSAP LAB",
+    category: "Q1 React / GSAP Mini-Project • Interactive Motion",
     year: "2026",
-    badge: "React Architecture",
-    shortDesc: "An ultra-minimalist creative agency workspace tracking design sprints and creative velocity with animated SVG metrics and micro-interactions.",
-    fullDesc: "Prism Studio Dashboard is a focused productivity workspace for digital agencies. It eliminates clutter in favor of typographic clarity, instant hotkeys, and GSAP-animated SVG data visualizations that provide real-time feedback without page reloads or jarring transitions.",
-    tech: ["React 19", "GSAP Motion", "Tailwind CSS", "Lucide Icons", "Client State"],
+    badge: "Q1 React / GSAP Mini-Project",
+    shortDesc: "An interactive Q1 React 19 and GSAP 3 mini-project exploring velocity-reactive kinetic typography, timeline scrubbing, elastic cursor physics, and live Web Audio frequency synthesis.",
+    fullDesc: "Built as a dedicated Q1 React and GSAP motion engineering mini-project, Kinetic Resonance demonstrates how declarative React state and imperative GSAP 3 timelines work together at 60 FPS. Users can manipulate dynamic letter-spacing kerning, velocity skew angles, and real-time Web Audio oscillator frequencies inside an interactive motion sandbox.",
+    tech: [
+      "React 19",
+      "GSAP 3",
+      "ScrollTrigger",
+      "Tailwind CSS",
+      "Web Audio API"
+    ],
     color: "#7BE0AD",
     accentBg: "bg-[#141A17]",
     previewBg: "from-[#13241B] to-[#0D1210]",
-    liveDemoUrl: "https://juliosdumagan-portfolio.vercel.app/#work",
-    githubUrl: "https://github.com/juliosdumagan/prism-dashboard",
+    image: "/q1-gsap-mini-project.svg",
+    liveDemoUrl: "https://github.com/jblr234",
+    githubUrl: "https://github.com/jblr234",
     features: [
-      "Hardware-accelerated SVG sparkline data transitions",
-      "Instant keyboard shortcuts for navigation and task creation",
-      "Interactive status toggles with tactile micro-interactions",
-      "Accessible ARIA live regions and full keyboard navigation"
+      "Real-time GSAP kerning, skew, and elastic timeline physics at 60 FPS",
+      "Interactive React 19 control surface synchronized with Web Audio API synthesis",
+      "ScrollTrigger entrance and scrubbed timeline choreography",
+      "Full prefers-reduced-motion accessibility support"
     ],
-    interactiveType: "dashboard"
+    interactiveType: "kinetic"
   }
 ];
 
 export const servicesData = [
   {
     number: "(01)",
-    title: "STRATEGY & DIGITAL DIRECTION",
-    desc: "Mapping project architecture, visual narratives, and user journeys to create distinct digital identities that stand out in crowded markets.",
-    deliverables: ["Creative Discovery", "Information Architecture", "Content Strategy", "Design Systems"]
+    title: "AI & COMPUTER VISION",
+    desc: "Building detection systems that watch, track, and flag what matters. My capstone, VigiTrack, uses YOLOv8 and ByteTrack to monitor unattended objects across multiple camera feeds.",
+    deliverables: [
+      "Object Detection (YOLOv8)",
+      "Multi-Object Tracking (ByteTrack)",
+      "OpenCV & RTSP Streams",
+      "Model Tuning & Evaluation"
+    ]
   },
   {
     number: "(02)",
-    title: "EDITORIAL UI/UX DESIGN",
-    desc: "Crafting bespoke typography hierarchies, generous editorial whitespace, and responsive layouts that convert while maintaining artistic elegance.",
-    deliverables: ["Wireframing & Prototyping", "Typography Art Direction", "High-Fidelity Mockups", "Design Tokens"]
+    title: "BACKEND & DASHBOARD DEVELOPMENT",
+    desc: "Turning raw detections into something a person can act on: live video, alert feeds, incident logs, and admin settings, all in one web dashboard.",
+    deliverables: [
+      "Flask Web Apps",
+      "SQLite Incident Logging",
+      "Live MJPEG Streaming",
+      "Multi-Camera Configuration"
+    ]
   },
   {
     number: "(03)",
-    title: "REACT & FRONTEND ARCHITECTURE",
-    desc: "Writing modular, scalable React code with clean component architecture, rapid Vite build pipelines, and production-grade state management.",
-    deliverables: ["React 19 Development", "Component Libraries", "Tailwind CSS Integration", "API & Form Integration"]
+    title: "AR, GAME DEV & DIGITAL ART",
+    desc: "Designing interactive experiences in Unity, from image-marker AR to annotated 3D models, with hand-drawn illustration and animation in Krita.",
+    deliverables: [
+      "Unity AR Applications",
+      "Vuforia Image Markers",
+      "GLB Models (glTFast)",
+      "Krita Illustration & Animation"
+    ]
   },
   {
     number: "(04)",
-    title: "GSAP MOTION & INTERACTION",
-    desc: "Bringing pages to life with coordinated GSAP timelines, ScrollTrigger pin sequences, custom cursors, and physics-informed micro-interactions.",
-    deliverables: ["ScrollTrigger Sequences", "Hero Reveal Timelines", "Interactive Micro-Interactions", "Reduced-Motion Support"]
+    title: "FRONTEND & GSAP MOTION",
+    desc: "Bringing pages to life with coordinated GSAP timelines, ScrollTrigger sequences, custom cursors, and reduced-motion support.",
+    deliverables: [
+      "ScrollTrigger Sequences",
+      "Hero Reveal Timelines",
+      "Custom Cursor",
+      "Reduced-Motion Support"
+    ]
   }
 ];
 

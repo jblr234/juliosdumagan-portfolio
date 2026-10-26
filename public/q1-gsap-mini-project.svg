@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141413" />
+      <stop offset="50%" stop-color="#1E1C1A" />
+      <stop offset="100%" stop-color="#0F0F0E" />
+    </linearGradient>
+    <linearGradient id="coralGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6046" />
+      <stop offset="100%" stop-color="#FF8E53" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(241,237,229,0.06)" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)" />
+  <rect width="800" height="500" fill="url(#grid)" />
+
+  <!-- Ambient animated pulse circle -->
+  <circle cx="400" cy="230" r="140" fill="rgba(255, 96, 70, 0.12)">
+    <animate attributeName="r" values="125;155;125" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Top HUD Bar -->
+  <rect x="40" y="32" width="720" height="44" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" />
+  <circle cx="64" cy="54" r="5" fill="#FF6046">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <text x="80" y="58" fill="#F1EDE5" font-family="monospace" font-size="12" letter-spacing="2">Q1 REACT 19 + GSAP 3 MOTION SANDBOX</text>
+  <text x="640" y="58" fill="#7BE0AD" font-family="monospace" font-size="12">60 FPS TIMELINE</text>
+
+  <!-- Animated Floating Pills / Physics Elements -->
+  <g>
+    <rect x="85" y="110" width="120" height="36" rx="18" fill="#FF6046" opacity="0.9">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 12,-10; 0,0" dur="3.2s" repeatCount="indefinite" />
+    </rect>
+    <text x="112" y="133" fill="#141413" font-family="monospace" font-weight="bold" font-size="11">gsap.timeline()</text>
+  </g>
+
+  <g>
+    <rect x="590" y="105" width="135" height="36" rx="18" fill="rgba(241,237,229,0.1)" stroke="#FF6046" stroke-width="1.5">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -14,8; 0,0" dur="3.8s" repeatCount="indefinite" />
+    </rect>
+    <text x="610" y="128" fill="#F1EDE5" font-family="monospace" font-size="11">ScrollTrigger</text>
+  </g>
+
+  <!-- Central Kinetic Typography Display -->
+  <g transform="translate(400, 225)">
+    <text text-anchor="middle" fill="#F1EDE5" font-family="Impact, sans-serif" font-size="68" letter-spacing="8">
+      KINETIC MOTION
+      <animate attributeName="letter-spacing" values="4px;16px;4px" dur="4s" repeatCount="indefinite" />
+    </text>
+    <text y="42" text-anchor="middle" fill="#FF6046" font-family="monospace" font-size="14" letter-spacing="4">
+      INTERACTIVE REACT + GSAP MINI-PROJECT
+    </text>
+  </g>
+
+  <!-- Animated Timeline Scrubbing Bars at Bottom -->
+  <g transform="translate(60, 320)">
+    <rect x="0" y="0" width="680" height="90" rx="14" fill="rgba(0,0,0,0.45)" stroke="rgba(255,255,255,0.1)" />
+    
+    <!-- Track 1 -->
+    <text x="20" y="28" fill="#A09C94" font-family="monospace" font-size="11">01 // KINETIC KERNING</text>
+    <rect x="190" y="18" width="460" height="8" rx="4" fill="rgba(255,255,255,0.08)" />
+    <rect x="190" y="18" width="320" height="8" rx="4" fill="url(#coralGlow)">
+      <animate attributeName="width" values="140;420;140" dur="4s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Track 2 -->
+    <text x="20" y="52" fill="#A09C94" font-family="monospace" font-size="11">02 // VELOCITY SKEW</text>
+    <rect x="190" y="42" width="460" height="8" rx="4" fill="rgba(255,255,255,0.08)" />
+    <rect x="190" y="42" width="240" height="8" rx="4" fill="#7BE0AD">
+      <animate attributeName="width" values="360;120;360" dur="3.4s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Track 3 -->
+    <text x="20" y="76" fill="#A09C94" font-family="monospace" font-size="11">03 // SPRING PHYSICS</text>
+    <rect x="190" y="66" width="460" height="8" rx="4" fill="rgba(255,255,255,0.08)" />
+    <rect x="190" y="66" width="290" height="8" rx="4" fill="#E2BA84">
+      <animate attributeName="width" values="200;440;200" dur="2.8s" repeatCount="indefinite" />
+    </rect>
+  </g>
+</svg>

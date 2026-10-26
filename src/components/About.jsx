@@ -14,30 +14,72 @@ export default function About() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Header animation
-      gsap.from('.about-header', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        ease: 'power3.out',
-      });
+      // Scrubbed Header Reveal
+      gsap.fromTo(
+        '.about-header',
+        { y: 45, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.about-header',
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.5,
+          },
+        }
+      );
 
-      // Stats cards animation
-      gsap.from('.stat-card', {
-        scrollTrigger: {
-          trigger: '.stats-container',
-          start: 'top 85%',
-        },
-        y: 30,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: 'power3.out',
-      });
+      // Scrubbed Split Columns (Portrait Left + Bio Right)
+      gsap.fromTo(
+        '.about-left-col',
+        { x: -60, y: 40, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.about-grid',
+            start: 'top 88%',
+            end: 'top 35%',
+            scrub: 0.6,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        '.about-right-col',
+        { x: 60, y: 40, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.about-grid',
+            start: 'top 88%',
+            end: 'top 35%',
+            scrub: 0.6,
+          },
+        }
+      );
+
+      // Scrubbed Stats Cards
+      gsap.fromTo(
+        '.stat-card',
+        { y: 40, opacity: 0, scale: 0.94 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: '.stats-container',
+            start: 'top 92%',
+            end: 'top 55%',
+            scrub: 0.5,
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -68,13 +110,13 @@ export default function About() {
         </div>
 
         {/* Editorial Story Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div className="about-grid grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
           
           {/* Portrait & Credentials Column (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="about-left-col will-change-transform lg:col-span-5 space-y-6">
             <div className="relative rounded-2xl overflow-hidden border border-charcoal/15 bg-charcoal shadow-xl group">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+                src="/IMG_1558.JPG"
                 alt="Julios Gabriel Dumagan creative workspace"
                 className="w-full h-80 sm:h-96 object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
               />
@@ -90,19 +132,19 @@ export default function About() {
             <div className="p-6 rounded-2xl bg-cream-surface/60 border border-charcoal/10 space-y-3">
               <div className="flex items-center gap-3 text-xs font-mono text-charcoal">
                 <GraduationCap className="w-4 h-4 text-coral shrink-0" />
-                <span>Cor Jesu College — Computer Science Scholar</span>
+                <span>Cor Jesu College — BSIT Student</span>
               </div>
               <div className="flex items-center gap-3 text-xs font-mono text-charcoal">
                 <Code2 className="w-4 h-4 text-coral shrink-0" />
-                <span>Specialization: React 19 + GSAP Motion Systems</span>
+                <span>Focus: Computer Vision + Creative Frontend</span>
               </div>
             </div>
           </div>
 
           {/* 1-2 Paragraph Bio & Manifesto (7 cols) */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="about-right-col will-change-transform lg:col-span-7 space-y-8">
             <h3 className="font-syne text-2xl sm:text-3xl md:text-4xl text-charcoal font-bold leading-snug">
-              "Great interfaces are not decorated; they are choreographed with intention, restraint, and emotional clarity."
+              “I build systems that see, and interfaces that explain what they see.”
             </h3>
 
             {/* Rubric: 1-2 paragraph bio - who you are, what you're learning, where you're based */}
@@ -120,7 +162,7 @@ export default function About() {
               <span className="text-xs font-mono uppercase tracking-widest text-muted block">
                 Engineering &amp; Design Taxonomy
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {personalData.skills.map((group) => (
                   <div key={group.category} className="p-4 rounded-xl bg-cream-surface/40 border border-charcoal/10">
                     <p className="text-xs font-mono text-coral font-bold uppercase mb-2">

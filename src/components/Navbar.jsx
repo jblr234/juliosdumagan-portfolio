@@ -41,7 +41,6 @@ export default function Navbar() {
     { label: 'Work', href: '#work' },
     { label: 'Process', href: '#services' },
     { label: 'About', href: '#about' },
-    { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -49,7 +48,7 @@ export default function Navbar() {
     <>
       <header
         id="navbar"
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-[background-color,padding,border-color,box-shadow] duration-300 ${
           scrolled
             ? 'bg-cream/90 backdrop-blur-md py-4 border-b border-charcoal/10 shadow-sm'
             : 'bg-transparent py-6'

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { personalData } from '../data/portfolioData';
 import { ArrowUp, Mail, Heart } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
@@ -25,10 +26,15 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    const smoother = ScrollSmoother.get();
+    if (smoother) {
+      smoother.scrollTo(0, true);
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -42,7 +48,7 @@ export default function Footer() {
               <span className="w-2 h-2 rounded-full bg-coral inline-block"></span>
             </span>
             <p className="text-xs font-mono text-muted-light mt-1">
-              Independent Creative Developer • {personalData.institution}
+              BSIT Student • {personalData.institution}
             </p>
           </div>
 
@@ -98,7 +104,9 @@ export default function Footer() {
             </a>
 
             <a
-              href={`mailto:${personalData.email}`}
+              href={personalData.emailUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-coral transition-colors flex items-center gap-1"
               aria-label="Email Julios"
             >

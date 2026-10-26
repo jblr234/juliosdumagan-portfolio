@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ExternalLink, Sparkles, Volume2, VolumeX, Play, RotateCcw } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
@@ -12,6 +13,41 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
   // Aura interactive state
   const [activeSlide, setActiveSlide] = useState(0);
+
+  // HCI CJC Booking interactive state
+  const [activeFigmaView, setActiveFigmaView] = useState(0);
+  const [selectedFacility, setSelectedFacility] = useState(0);
+
+  const cjcFacilities = [
+    {
+      name: 'CJC College Clinic',
+      building: 'Ground Floor • Main Administration Bldg',
+      capacity: 'Medical Consultation & Triage',
+      status: 'Open • 8:00 AM – 5:00 PM',
+      desc: 'Campus health clinic featured in the GALIOSCOPE onboarding & directory flow for medical checkups, first-aid assistance, and student wellness scheduling.',
+    },
+    {
+      name: 'CCIS Computer Laboratories',
+      building: 'Computing & Information Sciences Complex',
+      capacity: '40 Workstations / Lab',
+      status: 'Available for Booking',
+      desc: 'Dedicated BSIT & BSCS programming, networking, and HCI design laboratories with real-time slot reservation and conflict prevention.',
+    },
+    {
+      name: 'Audio-Visual Room (AVR)',
+      building: 'Academic Resource Center',
+      capacity: '120 Seats • Multimedia Stage',
+      status: 'Available for Booking',
+      desc: 'Equipped for thesis defenses, academic colloquiums, department seminars, and student organization screenings at Cor Jesu College.',
+    },
+    {
+      name: 'CJC Learning & Library Commons',
+      building: 'Main Campus Library',
+      capacity: 'Collaborative Study Pods',
+      status: 'Available for Booking',
+      desc: 'Quiet research zones and group discussion rooms reservable by Cor Jesu College students and faculty.',
+    },
+  ];
 
   // Prism interactive state
   const [tasks, setTasks] = useState([
@@ -66,10 +102,11 @@ export default function ProjectModal({ project, isOpen, onClose }) {
     setTasks(tasks.map(t => t.id === id ? { ...t, done: !t.done } : t));
   };
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
+      onClick={onClose}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-charcoal/80 backdrop-blur-md animate-in fade-in duration-200"
     >
       <div
@@ -119,6 +156,127 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                 Built with {project.tech[0]} + {project.tech[1]}
               </span>
             </div>
+
+            {/* Simulation 0: HCI GALIOSCOPE — Campus Facilities Booking */}
+            {project.interactiveType === 'hci-booking' && (
+              <div className="space-y-6">
+                {/* Figma Screenshot Switcher */}
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setActiveFigmaView(0)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                          activeFigmaView === 0
+                            ? 'bg-coral text-white font-semibold'
+                            : 'bg-white/10 text-muted-light hover:bg-white/20'
+                        }`}
+                      >
+                        01 · GALIOSCOPE Splash & Seal
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setActiveFigmaView(1)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
+                          activeFigmaView === 1
+                            ? 'bg-coral text-white font-semibold'
+                            : 'bg-white/10 text-muted-light hover:bg-white/20'
+                        }`}
+                      >
+                        02 · 60+ Frame Prototype Flow Map
+                      </button>
+                    </div>
+                    <a
+                      href={project.liveDemoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-coral hover:underline"
+                    >
+                      <span>Inspect in Figma</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  <div className="relative rounded-xl overflow-hidden border border-white/15 bg-black/50">
+                    <img
+                      src={activeFigmaView === 0 ? project.image : project.secondaryImage}
+                      alt={
+                        activeFigmaView === 0
+                          ? 'GALIOSCOPE Splash and Cor Jesu College Seal Frames'
+                          : 'GALIOSCOPE 60+ Frame Figma Prototype Architecture'
+                      }
+                      className="w-full max-h-72 sm:max-h-80 object-cover object-center"
+                    />
+                    <div className="p-3 bg-black/80 backdrop-blur-md border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                      <span className="text-cream">
+                        {activeFigmaView === 0
+                          ? 'Cor Jesu College (GALIOSCOPE) — Splash Screen, Official Seal & Facility Showcase'
+                          : 'End-to-End HCI Wireframe & High-Fidelity Booking Flow (60+ Connected Frames)'}
+                      </span>
+                      <span className="text-coral">Figma Interactive Prototype</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Interactive CJC Facility Explorer */}
+                <div className="space-y-3 pt-2 border-t border-white/10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-muted-light">
+                      Cor Jesu College Facilities Directory (Prototype Modules):
+                    </span>
+                    <span className="text-[11px] font-mono text-emerald-400">
+                      Digos City Campus
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {cjcFacilities.map((item, idx) => (
+                      <button
+                        key={item.name}
+                        type="button"
+                        onClick={() => setSelectedFacility(idx)}
+                        className={`text-left p-3 rounded-lg border transition-all ${
+                          selectedFacility === idx
+                            ? 'bg-coral/15 border-coral text-cream'
+                            : 'bg-white/5 border-white/10 text-muted-light hover:bg-white/10 hover:text-cream'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-syne font-bold text-xs sm:text-sm text-cream">
+                            {item.name}
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
+                            Active
+                          </span>
+                        </div>
+                        <p className="text-[11px] font-mono text-muted-light mt-1">
+                          {item.building}
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-black/40 border border-white/10 space-y-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="font-display text-xl text-coral tracking-wide">
+                        {cjcFacilities[selectedFacility].name}
+                      </span>
+                      <span className="text-xs font-mono text-emerald-400">
+                        {cjcFacilities[selectedFacility].status}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-cream/90 leading-relaxed">
+                      {cjcFacilities[selectedFacility].desc}
+                    </p>
+                    <div className="pt-1 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-muted-light">
+                      <span>Location: {cjcFacilities[selectedFacility].building}</span>
+                      <span>Capacity: {cjcFacilities[selectedFacility].capacity}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Simulation 1: Kinetic Type */}
             {project.interactiveType === 'kinetic' && (
@@ -183,48 +341,47 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               </div>
             )}
 
-            {/* Simulation 2: Aura Editorial Horizontal Scroll Scrub */}
-            {project.interactiveType === 'horizontal' && (
-              <div className="space-y-6">
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { title: 'EDITORIAL I', img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80', quote: 'Spatial minimalism in haute couture.' },
-                    { title: 'ARCHIVE II', img: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=400&q=80', quote: 'Monochrome contrast & pinned scrub.' },
-                    { title: 'VOL III', img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=400&q=80', quote: 'Tactile page mask transitions.' },
-                  ].map((slide, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveSlide(idx)}
-                      className={`cursor-pointer rounded-lg overflow-hidden border transition-all ${
-                        activeSlide === idx
-                          ? 'border-coral scale-102 ring-2 ring-coral/40'
-                          : 'border-white/10 opacity-70 hover:opacity-100'
-                      }`}
+            {/* Simulation 2: Krita 2D Digital Drawing & Animation Theater */}
+            {project.interactiveType === 'krita-video' && (
+              <div className="space-y-5">
+                <div className="rounded-xl overflow-hidden border border-white/15 bg-black shadow-2xl">
+                  <video
+                    src={project.videoUrl}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full max-h-[420px] object-contain bg-black"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="p-3.5 bg-black/85 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                    <span className="text-cream">
+                      Krita 2D Frame-by-Frame Animation • IT Professional Elective 3 (Digital Drawing)
+                    </span>
+                    <a
+                      href={project.driveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-coral hover:underline"
                     >
-                      <img src={slide.img} alt={slide.title} className="w-full h-24 object-cover" />
-                      <div className="p-2 bg-black/60">
-                        <p className="font-display text-sm text-cream">{slide.title}</p>
-                        <p className="text-[10px] text-muted-light truncate">{slide.quote}</p>
-                      </div>
-                    </div>
-                  ))}
+                      <span>Watch on Google Drive</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </div>
 
-                <div className="p-4 bg-white/5 rounded-lg border border-white/10 flex items-center justify-between text-xs font-mono">
-                  <span className="text-muted-light">Active Frame: 0{activeSlide + 1} / 03</span>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setActiveSlide((prev) => (prev > 0 ? prev - 1 : 2))}
-                      className="px-3 py-1 bg-white/10 hover:bg-coral text-cream rounded transition-colors"
-                    >
-                      Previous Panel
-                    </button>
-                    <button
-                      onClick={() => setActiveSlide((prev) => (prev < 2 ? prev + 1 : 0))}
-                      className="px-3 py-1 bg-coral hover:bg-coral-hover text-white rounded transition-colors"
-                    >
-                      Next Panel
-                    </button>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                    <p className="text-[10px] uppercase text-muted-light">Software</p>
+                    <p className="font-syne font-bold text-sm text-cream mt-0.5">Krita Animation Suite</p>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                    <p className="text-[10px] uppercase text-muted-light">Course Subject</p>
+                    <p className="font-syne font-bold text-sm text-coral mt-0.5">IT Elective 3 (Digital Drawing)</p>
+                  </div>
+                  <div className="p-3 rounded-lg bg-white/5 border border-white/10">
+                    <p className="text-[10px] uppercase text-muted-light">Technique</p>
+                    <p className="font-syne font-bold text-sm text-emerald-400 mt-0.5">Frame-by-Frame + Onion Skin</p>
                   </div>
                 </div>
               </div>
@@ -308,28 +465,48 @@ export default function ProjectModal({ project, isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Action Links (GitHub Repo + Live Demo) */}
+          {/* Action Links (GitHub Repo / Figma / Google Drive + Live Demo) */}
           <div className="pt-4 border-t border-charcoal/15 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <a
-                href={project.githubUrl}
+                href={
+                  project.isFigma || project.isVideoProject
+                    ? project.liveDemoUrl
+                    : project.githubUrl
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charcoal text-cream text-xs font-semibold uppercase tracking-wider hover:bg-coral hover:text-white transition-colors"
               >
-                <GithubIcon className="w-4 h-4" />
-                <span>View GitHub Repo</span>
+                {project.isFigma ? (
+                  <>
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Open Figma Design</span>
+                  </>
+                ) : project.isVideoProject ? (
+                  <>
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Watch on Google Drive</span>
+                  </>
+                ) : (
+                  <>
+                    <GithubIcon className="w-4 h-4" />
+                    <span>View GitHub Repo</span>
+                  </>
+                )}
               </a>
 
-              <a
-                href={project.liveDemoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-charcoal/20 text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-charcoal hover:text-cream transition-colors"
-              >
-                <ExternalLink className="w-4 h-4" />
-                <span>Launch Standalone</span>
-              </a>
+              {!project.isVideoProject && (
+                <a
+                  href={project.liveDemoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-charcoal/20 text-charcoal text-xs font-semibold uppercase tracking-wider hover:bg-charcoal hover:text-cream transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>{project.isFigma ? 'Launch Figma Prototype' : 'Launch Standalone'}</span>
+                </a>
+              )}
             </div>
 
             <button
@@ -341,6 +518,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

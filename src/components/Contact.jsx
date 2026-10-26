@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { personalData } from '../data/portfolioData';
 import { triggerConfetti } from '../utils/confetti';
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Contact() {
+  const sectionRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,8 +74,47 @@ export default function Contact() {
     }, 1200);
   };
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.contact-header',
+        { y: 55, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.contact-header',
+            start: 'top 90%',
+            end: 'top 50%',
+            scrub: 0.5,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        '.contact-grid',
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.contact-grid',
+            start: 'top 90%',
+            end: 'top 45%',
+            scrub: 0.6,
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="contact" className="py-24 md:py-36 bg-charcoal text-cream relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-24 md:py-36 bg-charcoal text-cream relative overflow-hidden">
       {/* Background Coral Ambient Glow */}
       <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-coral/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -78,12 +122,12 @@ export default function Contact() {
         
         {/* Section Eyebrow */}
         <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-coral mb-4">
-          <span>(06)</span>
+          <span>(05)</span>
           <span>Initiate Collaboration</span>
         </div>
 
         {/* Oversized Headline inspired by Bogdan Kolomiyets */}
-        <div className="mb-16">
+        <div className="contact-header will-change-transform mb-16">
           <h2 className="display-title text-5xl sm:text-7xl md:text-9xl text-cream leading-none">
             LET'S BUILD <span className="text-coral">SOMETHING</span> EXTRAORDINARY.
           </h2>
@@ -93,7 +137,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Grid: Form (7 cols) + Direct Channels (5 cols) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="contact-grid will-change-transform grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Functional Form */}
           <div className="lg:col-span-7 bg-charcoal-card p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
@@ -286,7 +330,9 @@ export default function Contact() {
             <div className="space-y-4">
               {/* Email */}
               <a
-                href={`mailto:${personalData.email}`}
+                href={personalData.emailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-charcoal-card border border-white/10 hover:border-coral flex items-center justify-between group transition-colors"
               >
                 <div className="flex items-center gap-4">
@@ -317,7 +363,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] font-mono uppercase text-muted-light tracking-wider block">GitHub Profile</span>
                     <span className="font-mono text-sm text-cream font-medium group-hover:text-coral transition-colors">
-                      github.com/juliosdumagan
+                      github.com/jblr234
                     </span>
                   </div>
                 </div>
@@ -338,7 +384,7 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] font-mono uppercase text-muted-light tracking-wider block">LinkedIn Network</span>
                     <span className="font-mono text-sm text-cream font-medium group-hover:text-coral transition-colors">
-                      linkedin.com/in/juliosdumagan
+                      linkedin.com/in/julios-gabriel-dumagan-138067447
                     </span>
                   </div>
                 </div>
@@ -349,7 +395,7 @@ export default function Contact() {
             {/* Institution Badge */}
             <div className="p-4 rounded-xl border border-white/10 bg-charcoal/60 text-xs font-mono text-muted-light space-y-1">
               <p className="text-coral font-bold">🏫 Cor Jesu College — Digos City</p>
-              <p>Department of Information Technology &amp; Computer Science</p>
+              <p>BSIT Student — Bachelor of Science in Information Technology</p>
             </div>
           </div>
 

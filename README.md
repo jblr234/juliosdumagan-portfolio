@@ -1,161 +1,79 @@
-# Julios Gabriel Dumagan — Premium Creative Portfolio (v1)
+# Julios Gabriel Dumagan — Creative Developer Portfolio
 
-> **Live Demo:** [juliosdumagan-portfolio.vercel.app](https://juliosdumagan-portfolio.vercel.app)  
-> **Course:** Q2 — Portfolio v1: The Foundation  
-> **Institution:** Cor Jesu College (CJC) — Department of Information Technology & Computer Science  
-> **Design Reference:** Inspired by [Bogdan Kolomiyets](https://bogdankolomiyets.com/)
+> **Live URL:** [juliosdumagan-portfolio.vercel.app](https://juliosdumagan-portfolio.vercel.app)  
+> **GitHub Repository:** [github.com/jblr234/juliosdumagan-portfolio](https://github.com/jblr234/juliosdumagan-portfolio)  
+> **Author:** Julios Gabriel Dumagan — BSIT Student at **Cor Jesu College (CJC)**, Digos City, Philippines  
 
 ---
 
-## ✦ Project Overview
+## 📸 Portfolio Screenshots & Previews
 
-A high-end, editorial, typography-first creative developer portfolio inspired by the signature art direction of **Bogdan Kolomiyets**. Engineered from the ground up using **React 19**, **GSAP 3**, **ScrollTrigger**, and **Tailwind CSS**.
+### Project 01 — GALIOSCOPE (Cor Jesu College Campus Facilities Booking Prototype)
+![GALIOSCOPE Figma Prototype](./public/hci-booking-1.png)
 
-The site presents an intentional balance of:
-- **Warm Cream Canvas:** `#F1EDE5` background providing paper-like editorial warmth.
-- **Condensed Display Typography:** High-impact oversized Bebas Neue & Syne headlines.
-- **Selective Coral Accents:** `#FF6046` strategic highlights for call-to-actions and focal points.
-- **GSAP Motion Choreography:** Staggered line-by-line clipped text reveals, scale transforms, and fluid micro-interactions.
-- **Zero Placeholder Content:** 100% authentic student biography, real projects, working interactive live simulations, and functional validated contact system.
+### Project 03 — Kinetic Resonance (Q1 React 19 & GSAP 3 Motion Lab)
+![Q1 React & GSAP Mini-Project](./public/q1-gsap-mini-project.svg)
+
+---
+
+## ✦ Description
+
+An editorial, motion-driven creative developer portfolio built for **Julios Gabriel Dumagan**, a Bachelor of Science in Information Technology (BSIT) student at **Cor Jesu College** in Digos City, Philippines.
+
+> *“I build systems that see, and interfaces that explain what they see.”*
+
+Key highlights of this portfolio:
+- **Explosive Radial Hero & Cursor Proximity Physics:** 10 multi-depth 3D floating objects with `gsap.quickTo` parallax and cursor repulsion physics.
+- **GSAP ScrollSmoother & ScrollTrigger Choreography:** Inertial smooth scrolling (`smooth: 1.35`, `effects: true`) and 3-phase scrubbed section reveals.
+- **Interactive Project Showcase:**
+  1. **GALIOSCOPE — Campus Facilities Booking:** 60+ frame Human-Computer Interaction (HCI) Figma prototype for Cor Jesu College facilities.
+  2. **2D Frame-by-Frame Animation — Krita:** Final project animated short film for *IT Professional Elective 3 (Digital Drawing)* with an inline playable HTML5 video player.
+  3. **Kinetic Resonance — Q1 React & GSAP Lab:** Interactive React 19 + GSAP 3 motion and Web Audio synthesizer mini-project.
+- **Validated Contact Brief & Direct Channels:** Real-time form validation, celebratory confetti burst, and direct links to Email (`juliosdumagan@g.cjc.edu.ph`), GitHub (`@jblr234`), and LinkedIn.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Domain | Technology | Purpose |
-| :--- | :--- | :--- |
-| **Frontend Framework** | React 19 (`react`, `react-dom`) | Modular component hierarchy & state |
-| **Build Tool** | Vite 8 | Instant HMR & optimized production bundling |
-| **Motion & Physics** | GSAP 3 + ScrollTrigger (`@gsap/react`) | Coordinated hero timeline & scroll triggers |
-| **Styling & Tokens** | Tailwind CSS 3.4 + PostCSS + Autoprefixer | Editorial design tokens & responsive clamps |
-| **Routing** | React Router DOM 7 | Structured routing for SPA and future case studies |
-| **Icons & Visuals** | Lucide React + Custom Inline SVGs | Clean, lightweight vector graphics |
-| **Feedback FX** | Custom Zero-Dependency Canvas Confetti | Celebratory particle burst respecting reduced-motion |
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend & UI** | React 19, Vite, Tailwind CSS 3.4, React Router DOM 7, Lucide Icons |
+| **Motion & Physics** | GSAP 3 (`ScrollTrigger`, `ScrollSmoother`, `@gsap/react`) |
+| **AI & Vision** | Python, YOLOv8, ByteTrack, OpenCV |
+| **Web & Backend** | Flask, SQLite |
+| **Creative & Design** | Figma (Interactive Prototyping), Krita (2D Frame-by-Frame Animation), Unity, Vuforia |
 
 ---
 
-## 📋 Required Assignment Sections & Rubric Audit
+## 💻 Setup Instructions (Run Locally)
 
-| Rubric Section | Implementation | Status |
-| :--- | :--- | :---: |
-| **1. Hero** | Name (Julios Gabriel Dumagan), tagline, art-directed portrait overlapping typography, dual CTA buttons ("Explore Selected Work" & "Get in Touch"), scroll indicator | ✅ Complete |
-| **2. About** | 1–2 paragraph bio: who you are, what you're learning (GSAP choreographies & React), where you're based (Digos City, PH • Cor Jesu College), stats & skills taxonomy | ✅ Complete |
-| **3. Projects** | At least 3 Q1 React/GSAP mini-projects with title, description, tech stack, rich visual cards, interactive live sandbox modal, GitHub repo links, and demo links | ✅ Complete |
-| **4. Contact** | Functional contact form with real-time validation, status states, celebratory confetti, plus direct Email (`juliosdumagan@g.cjc.edu.ph`), GitHub, and LinkedIn links | ✅ Complete |
-| **5. Footer** | Copyright Julios Gabriel Dumagan, live Philippine Standard Time (PST GMT+8) clock, social icons, and smooth GSAP back-to-top button | ✅ Complete |
-| **Technical Specs** | React (Vite), React Router, Component architecture, Tailwind CSS, mobile-first responsive design, GSAP animations, no broken links | ✅ Complete |
-| **Git & Commits** | At least 10 meaningful, semantic commits in Git history | ✅ Complete |
-
----
-
-## 🚀 Projects Showcase (Q1 Mini-Projects)
-
-### 1. Kinetic Type & Soundscape
-- **Description:** Experimental audio-visual sandbox where letterforms distort dynamically based on user interaction, paired with a procedural Web Audio API harmonic oscillator.
-- **Tech Stack:** React 19, GSAP Timelines, Web Audio API, Tailwind CSS, Canvas
-- **GitHub:** [github.com/juliosdumagan/kinetic-soundscape](https://github.com/juliosdumagan/kinetic-soundscape)
-- **Live Demo:** In-app interactive simulation modal + standalone link
-
-### 2. Aura Editorial Archive
-- **Description:** Luxury fashion archive inspired by European high-fashion publications featuring GSAP ScrollTrigger pinned horizontal scrub sequences and clip-path polygon reveals.
-- **Tech Stack:** React, GSAP ScrollTrigger, CSS Masking, Vite, Responsive Design
-- **GitHub:** [github.com/juliosdumagan/aura-editorial](https://github.com/juliosdumagan/aura-editorial)
-- **Live Demo:** In-app interactive simulation modal + standalone link
-
-### 3. Prism Studio Dashboard
-- **Description:** Ultra-minimalist creative workspace and sprint velocity tracker with animated hardware-accelerated SVG metrics and keyboard-friendly task checklist.
-- **Tech Stack:** React 19, GSAP Motion, Tailwind CSS, Lucide Icons, Client State
-- **GitHub:** [github.com/juliosdumagan/prism-dashboard](https://github.com/juliosdumagan/prism-dashboard)
-- **Live Demo:** In-app interactive simulation modal + standalone link
-
----
-
-## 💻 Local Setup & Development Instructions
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [Visual Studio Code](https://code.visualstudio.com/)
-
-### Step 1: Open Project in Visual Studio Code
-Open your terminal or PowerShell and run:
+### 1. Clone the Repository
 ```bash
-cd "C:\Users\garya\.gemini\antigravity\scratch\DUMAGAN PORTFOLIO"
-code .
+git clone https://github.com/jblr234/juliosdumagan-portfolio.git
+cd juliosdumagan-portfolio
 ```
-*(Or in VS Code, go to `File` > `Open Folder...` and select `C:\Users\garya\.gemini\antigravity\scratch\DUMAGAN PORTFOLIO`)*
 
-### Step 2: Install Dependencies
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### Step 3: Run the Development Server
+### 3. Start the Local Development Server
 ```bash
 npm run dev
 ```
-Open your browser and navigate to `http://localhost:5173`.
+Open **`http://localhost:5173`** in your browser.
 
-### Step 4: Build for Production
+### 4. Build for Production
 ```bash
 npm run build
 ```
-The optimized bundle will be compiled to the `/dist` directory.
 
 ---
 
-## 🚢 Deployment Guide (Vercel)
+## 👤 Author & Links
 
-### Option A: Via GitHub (Recommended)
-1. Push this repository to your friend's or your GitHub account:
-   ```bash
-   git remote add origin https://github.com/juliosdumagan/portfolio.git
-   git branch -M main
-   git push -u origin main
-   ```
-2. Go to [Vercel](https://vercel.com) and log in with GitHub.
-3. Click **Add New** > **Project** and select `portfolio` (or `DUMAGAN PORTFOLIO`).
-4. Framework Preset will auto-detect as **Vite**.
-5. Click **Deploy**. The site will be live at `juliosdumagan-portfolio.vercel.app`!
-
-### Option B: Via Vercel CLI
-```bash
-npm i -g vercel
-vercel
-```
-
----
-
-## 🏛 Component Hierarchy
-
-```
-src/
-├── main.jsx                 # React root mounting
-├── App.jsx                  # React Router configuration & GSAP ScrollTrigger refresh
-├── index.css                # Tailwind directives, editorial masks, and scrollbars
-├── data/
-│   └── portfolioData.js     # Julios' bio, projects, services, stats, FAQ, socials
-├── utils/
-│   └── confetti.js          # Zero-dependency canvas particle celebration
-└── components/
-    ├── Navbar.jsx           # Fixed editorial header & fullscreen mobile drawer
-    ├── Hero.jsx             # Signature oversized title + overlapping portrait + GSAP timeline
-    ├── Marquee.jsx          # Seamless looping typography ticker
-    ├── Services.jsx         # (01)-(04) Numbered capabilities with GSAP triggers
-    ├── Projects.jsx         # Selected work showcase with card compositions
-    ├── ProjectModal.jsx     # Live interactive sandbox preview for all 3 projects
-    ├── About.jsx            # 1-2 paragraph bio, CJC scholar credentials, stats
-    ├── FAQ.jsx              # Accessible editorial accordion
-    ├── Contact.jsx          # Validated brief submission form & direct contacts
-    ├── Footer.jsx           # Live Manila/Digos clock, copyright & back-to-top
-    └── Icons.jsx            # Standalone vector icons (GitHub, LinkedIn)
-```
-
----
-
-## 👤 Author
-
-**Julios Gabriel Dumagan**  
-- Institution: Cor Jesu College (CJC)  
-- Email: [juliosdumagan@g.cjc.edu.ph](mailto:juliosdumagan@g.cjc.edu.ph)  
-- GitHub: [@juliosdumagan](https://github.com/juliosdumagan)  
-- LinkedIn: [juliosdumagan](https://linkedin.com/in/juliosdumagan)
+- **Name:** Julios Gabriel Dumagan (BSIT Student • Cor Jesu College)
+- **Email:** [juliosdumagan@g.cjc.edu.ph](mailto:juliosdumagan@g.cjc.edu.ph)
+- **GitHub:** [github.com/jblr234](https://github.com/jblr234)
+- **LinkedIn:** [linkedin.com/in/julios-gabriel-dumagan-138067447](https://www.linkedin.com/in/julios-gabriel-dumagan-138067447/)

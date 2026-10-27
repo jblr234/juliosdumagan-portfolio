@@ -118,7 +118,7 @@ export default function About() {
               <img
                 src="/IMG_1558.JPG"
                 alt="Julios Gabriel Dumagan creative workspace"
-                className="w-full h-80 sm:h-96 object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-4 left-4 right-4 text-cream">

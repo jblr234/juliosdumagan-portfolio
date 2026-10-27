@@ -241,15 +241,9 @@ export default function Hero() {
         transformOrigin: 'center bottom',
       });
 
-      gsap.set(portraitRef.current, {
-        y: 120,
-        scale: 0.82,
-        opacity: 0,
-      });
-      gsap.set(portraitImgRef.current, { scale: 1.18 });
       gsap.set(glowRef.current, { opacity: 0, scale: 0.5 });
 
-      // Start all floating objects hidden & gathered near the center behind the portrait
+      // Start all floating objects hidden & gathered near the center
       floatingEls.forEach((el, i) => {
         const cfg = FLOATING_OBJECTS[i];
         gsap.set(el, {
@@ -293,27 +287,10 @@ export default function Hero() {
           },
           '-=0.65'
         )
-        // Central Subject Portrait rises up from bottom center
-        .to(
-          portraitRef.current,
-          {
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1.3,
-            ease: 'back.out(1.35)',
-          },
-          '-=1.05'
-        )
-        .to(
-          portraitImgRef.current,
-          { scale: 1, duration: 1.5, ease: 'expo.out' },
-          '-=1.3'
-        )
         .to(
           glowRef.current,
           { opacity: 0.9, scale: 1, duration: 1.3, ease: 'power2.out' },
-          '-=1.2'
+          '-=1.1'
         )
         // 10 Floating 3D Objects burst outward radially into place!
         .to(
@@ -373,10 +350,6 @@ export default function Hero() {
         gsap.quickTo(el, 'rotation', { duration: 0.65, ease: 'power3.out' })
       );
 
-      const portraitX = gsap.quickTo(portraitRef.current, 'x', { duration: 0.7, ease: 'power3.out' });
-      const portraitY = gsap.quickTo(portraitRef.current, 'y', { duration: 0.7, ease: 'power3.out' });
-      const portraitRot = gsap.quickTo(portraitRef.current, 'rotation', { duration: 0.7, ease: 'power3.out' });
-
       const line1X = gsap.quickTo(headlineLine1Ref.current, 'x', { duration: 0.8, ease: 'power3.out' });
       const line2X = gsap.quickTo(headlineLine2Ref.current, 'x', { duration: 0.8, ease: 'power3.out' });
 
@@ -385,11 +358,7 @@ export default function Hero() {
         const relX = (e.clientX - rect.left) / rect.width - 0.5;
         const relY = (e.clientY - rect.top) / rect.height - 0.5;
 
-        // Subtle counter-parallax on Portrait & Giant Typography
-        portraitX(relX * -26);
-        portraitY(relY * -18);
-        portraitRot(relX * -2.5);
-
+        // Subtle counter-parallax on Giant Typography
         line1X(relX * 22);
         line2X(relX * -22);
 
@@ -426,9 +395,6 @@ export default function Hero() {
       };
 
       const handleMouseLeave = () => {
-        portraitX(0);
-        portraitY(0);
-        portraitRot(0);
         line1X(0);
         line2X(0);
         floatingEls.forEach((_, i) => {
@@ -528,38 +494,17 @@ export default function Hero() {
           <div className="line-mask overflow-hidden text-center relative z-10">
             <h1
               ref={headlineLine1Ref}
-              className="display-title text-[15vw] sm:text-[14vw] lg:text-[13vw] font-normal leading-none tracking-tight text-charcoal hover:text-charcoal/90 transition-colors will-change-transform"
+              className="display-title text-[16vw] sm:text-[15vw] lg:text-[14vw] font-normal leading-[0.88] tracking-tight text-charcoal hover:text-coral transition-colors duration-300 will-change-transform"
             >
               CREATIVE
             </h1>
           </div>
 
-          {/* Visual Portrait / Subject Centerpiece overlapping Typography */}
-          <div className="relative my-[-4vw] md:my-[-5vw] z-15 flex justify-center items-center pointer-events-none">
-            <div
-              ref={portraitRef}
-              className="relative w-72 h-60 sm:w-96 sm:h-80 md:w-[460px] md:h-[380px] lg:w-[540px] lg:h-[420px] rounded-2xl overflow-hidden shadow-2xl border-4 border-cream bg-charcoal pointer-events-auto group transition-shadow duration-500 hover:shadow-coral/20 will-change-transform"
-            >
-              {/* Art Directed Portrait Graphic / Editorial Composition */}
-              <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-charcoal/90 z-10 pointer-events-none" />
-              
-              <img
-                ref={portraitImgRef}
-                src="/IMG_1558.JPG"
-                alt="Julios Gabriel Dumagan portrait"
-                className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 group-hover:scale-105 group-hover:grayscale-0 transition-[filter,transform] duration-700 ease-out will-change-transform"
-              />
-
-              {/* Bottom coral gradient layer */}
-              <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-coral/60 via-coral/20 to-transparent z-15 mix-blend-multiply pointer-events-none" />
-            </div>
-          </div>
-
           {/* Headline Line 2 */}
-          <div className="line-mask overflow-hidden text-center relative z-20">
+          <div className="line-mask overflow-hidden text-center relative z-10 mt-1 sm:mt-2">
             <h1
               ref={headlineLine2Ref}
-              className="display-title text-[15vw] sm:text-[14vw] lg:text-[13vw] font-normal leading-none tracking-tight text-charcoal hover:text-coral transition-colors duration-300 will-change-transform"
+              className="display-title text-[16vw] sm:text-[15vw] lg:text-[14vw] font-normal leading-[0.88] tracking-tight text-charcoal hover:text-coral transition-colors duration-300 will-change-transform"
             >
               &amp; DEVELOPER
             </h1>

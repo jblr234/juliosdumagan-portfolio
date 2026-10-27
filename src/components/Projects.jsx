@@ -17,7 +17,7 @@ export default function Projects() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Scrubbed Header In & Out
+      // Scrubbed Header In
       gsap.fromTo(
         '.projects-header',
         { y: 50, opacity: 0 },
@@ -34,49 +34,44 @@ export default function Projects() {
         }
       );
 
-      // Venkatesh Rapolu style scrubbed 3D Project Cards with In/Out depth & inner parallax
+      // Scrubbed Split Columns per Project Card (matching About section animation)
       const cards = gsap.utils.toArray('.project-card');
       cards.forEach((card, index) => {
         const mockupCol = card.querySelector('.project-mockup-col');
         const infoCol = card.querySelector('.project-info-col');
-        const dir = index % 2 === 0 ? 1 : -1;
+        const isEven = index % 2 === 0;
 
-        const cardTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 95%',
-            end: 'bottom 5%',
-            scrub: 0.6,
-          },
-        });
+        gsap.fromTo(
+          mockupCol,
+          { x: isEven ? -60 : 60, y: 40, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              end: 'top 35%',
+              scrub: 0.6,
+            },
+          }
+        );
 
-        cardTl
-          // Phase 1: Scrubbed Entrance (0 -> 0.35)
-          .fromTo(
-            mockupCol,
-            { x: -70 * dir, y: 60, scale: 0.88, opacity: 0 },
-            { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.35, ease: 'power2.out' },
-            0
-          )
-          .fromTo(
-            infoCol,
-            { x: 70 * dir, y: 50, opacity: 0 },
-            { x: 0, y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' },
-            0.04
-          )
-          // Phase 2: Center Focus Hold (0.35 -> 0.85)
-          .to(mockupCol, { scale: 1, opacity: 1, duration: 0.5 })
-          // Phase 3: Subtle Scrubbed Exit (0.85 -> 1.0)
-          .to(
-            mockupCol,
-            { y: -25, scale: 0.96, opacity: 0.85, duration: 0.15, ease: 'power2.in' },
-            0.85
-          )
-          .to(
-            infoCol,
-            { y: -20, opacity: 0.85, duration: 0.15, ease: 'power2.in' },
-            0.85
-          );
+        gsap.fromTo(
+          infoCol,
+          { x: isEven ? 60 : -60, y: 40, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 88%',
+              end: 'top 35%',
+              scrub: 0.6,
+            },
+          }
+        );
       });
     }, sectionRef);
 

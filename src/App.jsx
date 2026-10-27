@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 import Navbar from './components/Navbar';
+import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import Services from './components/Services';
@@ -13,79 +13,44 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
-  const wrapperRef = useRef(null);
-  const contentRef = useRef(null);
   const progressBarRef = useRef(null);
 
+  const handlePreloaderComplete = useCallback(() => {
+    ScrollTrigger.refresh();
+  }, []);
+
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let smoother = null;
-
-    const ctx = gsap.context(() => {
-      if (!prefersReducedMotion) {
-        // Initialize GSAP ScrollSmoother (Venkatesh Rapolu buttery inertial smooth scroll)
-        smoother = ScrollSmoother.create({
-          wrapper: wrapperRef.current,
-          content: contentRef.current,
-          smooth: 1.35,
-          effects: true,
-          smoothTouch: 0.1,
-          normalizeScroll: true,
-          onUpdate: (self) => {
-            if (progressBarRef.current) {
-              gsap.set(progressBarRef.current, { scaleX: self.progress });
-            }
-          },
-        });
-      }
-    });
-
-    // Intercept anchor links (#work, #services, #about, #contact) to use ScrollSmoother.scrollTo
-    const handleAnchorClick = (e) => {
-      const anchor = e.target.closest('a[href^="#"]');
-      if (!anchor) return;
-      const href = anchor.getAttribute('href');
-      if (!href) return;
-
-      if (href === '#') {
-        e.preventDefault();
-        if (smoother) {
-          smoother.scrollTo(0, true);
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        return;
-      }
-
-      const targetEl = document.querySelector(href);
-      if (targetEl) {
-        e.preventDefault();
-        if (smoother) {
-          smoother.scrollTo(targetEl, true, 'top top');
-        } else {
-          targetEl.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
+    const updateProgress = () => {
+      if (!progressBarRef.current) return;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+      gsap.set(progressBarRef.current, { scaleX: progress });
     };
 
-    document.addEventListener('click', handleAnchorClick);
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
 
     const timeout = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 450);
+      updateProgress();
+    }, 350);
 
     return () => {
       clearTimeout(timeout);
-      document.removeEventListener('click', handleAnchorClick);
-      ctx.revert();
+      window.removeEventListener('scroll', updateProgress);
     };
   }, []);
 
   return (
     <div className="relative min-h-screen bg-cream selection:bg-coral selection:text-white">
+      {/* Initial Editorial Loading Screen */}
+      <Preloader onComplete={handlePreloaderComplete} />
+
       {/* Top ScrollTrigger Progress Indicator Bar */}
       <div className="fixed top-0 left-0 right-0 h-[3px] z-[60] pointer-events-none">
         <div
@@ -94,23 +59,20 @@ function HomePage() {
         />
       </div>
 
-      {/* Fixed Header lives outside #smooth-wrapper as required by GSAP ScrollSmoother */}
+      {/* Fixed Header */}
       <Navbar />
 
-      {/* GSAP ScrollSmoother Wrapper & Content */}
-      <div id="smooth-wrapper" ref={wrapperRef}>
-        <div id="smooth-content" ref={contentRef}>
-          <main>
-            <Hero />
-            <Marquee />
-            <Services />
-            <Projects />
-            <About />
-            <Contact />
-          </main>
-          <Footer />
-        </div>
-      </div>
+      {/* Main Single-Page Portfolio Flow */}
+      <main>
+        <Hero />
+        <Marquee />
+        <Services />
+        <Projects />
+        <About />
+        <Contact />
+      </main>
+
+      <Footer />
     </div>
   );
 }

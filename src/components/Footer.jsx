@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { personalData } from '../data/portfolioData';
 import { ArrowUp, Mail, Heart } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
@@ -26,15 +25,10 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    const smoother = ScrollSmoother.get();
-    if (smoother) {
-      smoother.scrollTo(0, true);
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (

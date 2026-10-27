@@ -6,6 +6,8 @@ import { personalData } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let heroPreloaderDone = false;
+
 // 10 Multi-Depth Floating Objects (inspired by Henrietta Said's 3D depth-of-field floating items)
 const FLOATING_OBJECTS = [
   {
@@ -230,7 +232,6 @@ export default function Hero() {
       const floatingEls = floatingRefs.current.filter(Boolean);
 
       // 1. Initial States for Explosive Radial Intro Timeline
-      gsap.set('#navbar', { y: -28, opacity: 0 });
       gsap.set(statusLineRef.current, { scaleX: 0, transformOrigin: 'left center' });
       gsap.set('.hero-status-item', { y: 16, opacity: 0 });
 
@@ -265,22 +266,15 @@ export default function Hero() {
         opacity: 0,
       });
 
-      // 2. Master Intro Timeline (Henrietta-style burst + smooth reveal)
+      // 2. Master Intro Timeline (Henrietta-style burst + smooth reveal, timed right as Preloader splits open)
       const tl = gsap.timeline({
         defaults: { ease: 'expo.out' },
-        delay: 0.1,
+        delay: 2.35,
       });
 
-      tl.to('#navbar', {
-        y: 0,
-        opacity: 1,
-        duration: 1.0,
-        ease: 'power3.out',
-      })
-        .to(
+      tl.to(
           statusLineRef.current,
-          { scaleX: 1, duration: 1.0, ease: 'expo.inOut' },
-          '-=0.8'
+          { scaleX: 1, duration: 1.0, ease: 'expo.inOut' }
         )
         .to(
           '.hero-status-item',

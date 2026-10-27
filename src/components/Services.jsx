@@ -14,129 +14,105 @@ export default function Services() {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Header Scroll-Scrubbed In & Out Animation
-      const headerTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.services-header',
-          start: 'top 95%',
-          end: 'bottom 5%',
-          scrub: 0.5,
-        },
-      });
+      // 1. Scrubbed Header Reveal (matching About section animation)
+      gsap.fromTo(
+        '.services-header-left',
+        { x: -50, y: 40, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.services-header',
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.5,
+          },
+        }
+      );
 
-      headerTl
-        // Animate IN (0% -> 35%)
-        .fromTo(
-          '.services-header-left',
-          { x: -80, y: 30, opacity: 0 },
-          { x: 0, y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' },
-          0
-        )
-        .fromTo(
-          '.services-subtitle',
-          { x: 80, y: 30, opacity: 0 },
-          { x: 0, y: 0, opacity: 1, duration: 0.35, ease: 'power2.out' },
-          0
-        )
-        .fromTo(
-          '.services-header-line',
-          { scaleX: 0, transformOrigin: 'left center' },
-          { scaleX: 1, duration: 0.35, ease: 'power2.out' },
-          0
-        )
-        // Hold in center reading zone (35% -> 68%)
-        .to('.services-header-left', { x: 0, opacity: 1, duration: 0.33 })
-        // Animate OUT (68% -> 100%)
-        .to(
-          '.services-header-left',
-          { x: -80, y: -30, opacity: 0, duration: 0.32, ease: 'power2.in' },
-          0.68
-        )
-        .to(
-          '.services-subtitle',
-          { x: 80, y: -30, opacity: 0, duration: 0.32, ease: 'power2.in' },
-          0.68
-        )
-        .to(
-          '.services-header-line',
-          { scaleX: 0, transformOrigin: 'right center', duration: 0.32, ease: 'power2.in' },
-          0.68
-        );
+      gsap.fromTo(
+        '.services-subtitle',
+        { x: 50, y: 40, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: '.services-header',
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.5,
+          },
+        }
+      );
 
-      // 2. Items (01) to (04) Continuous Scroll-Scrubbed In & Out Animation
+      gsap.fromTo(
+        '.services-header-line',
+        { scaleX: 0, transformOrigin: 'left center' },
+        {
+          scaleX: 1,
+          scrollTrigger: {
+            trigger: '.services-header',
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.5,
+          },
+        }
+      );
+
+      // 2. Scrubbed Split Columns for Items (01) to (04) (matching About section animation)
       const items = gsap.utils.toArray('.service-item');
       items.forEach((item) => {
         const line = item.querySelector('.service-divider');
         const leftCol = item.querySelector('.service-left-col');
         const rightCol = item.querySelector('.service-right-col');
-        const pills = item.querySelectorAll('.service-pill');
 
-        const itemTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 95%',
-            end: 'bottom 5%',
-            scrub: 0.5,
-          },
-        });
+        gsap.fromTo(
+          line,
+          { scaleX: 0, transformOrigin: 'left center' },
+          {
+            scaleX: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 90%',
+              end: 'top 50%',
+              scrub: 0.5,
+            },
+          }
+        );
 
-        itemTl
-          // PHASE 1: ANIMATE IN as item enters viewport (0 -> 0.35)
-          .fromTo(
-            item,
-            { scale: 0.92, opacity: 0, y: 50 },
-            { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' },
-            0
-          )
-          .fromTo(
-            line,
-            { scaleX: 0, transformOrigin: 'left center' },
-            { scaleX: 1, duration: 0.35, ease: 'power2.out' },
-            0
-          )
-          .fromTo(
-            leftCol,
-            { x: -70, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' },
-            0
-          )
-          .fromTo(
-            rightCol,
-            { x: 70, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' },
-            0
-          )
-          .fromTo(
-            pills,
-            { y: 20, opacity: 0, scale: 0.9 },
-            { y: 0, opacity: 1, scale: 1, stagger: 0.02, duration: 0.25, ease: 'power2.out' },
-            0.1
-          )
+        gsap.fromTo(
+          leftCol,
+          { x: -60, y: 35, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 88%',
+              end: 'top 45%',
+              scrub: 0.6,
+            },
+          }
+        );
 
-          // PHASE 2: HOLD IN FOCUS while in the center of viewport (0.35 -> 0.65)
-          .to(item, { scale: 1, opacity: 1, y: 0, duration: 0.3 })
-
-          // PHASE 3: ANIMATE OUT as item leaves viewport (0.65 -> 1.0)
-          .to(
-            item,
-            { scale: 0.92, opacity: 0, y: -50, duration: 0.35, ease: 'power2.in' },
-            0.65
-          )
-          .to(
-            line,
-            { scaleX: 0, transformOrigin: 'right center', duration: 0.35, ease: 'power2.in' },
-            0.65
-          )
-          .to(
-            leftCol,
-            { x: -70, opacity: 0, duration: 0.35, ease: 'power2.in' },
-            0.65
-          )
-          .to(
-            rightCol,
-            { x: 70, opacity: 0, duration: 0.35, ease: 'power2.in' },
-            0.65
-          );
+        gsap.fromTo(
+          rightCol,
+          { x: 60, y: 35, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 88%',
+              end: 'top 45%',
+              scrub: 0.6,
+            },
+          }
+        );
       });
     }, sectionRef);
 
@@ -171,10 +147,11 @@ export default function Services() {
 
         {/* Editorial Services List (01 to 04) */}
         <div className="space-y-4">
-          {servicesData.map((service) => (
+          {servicesData.map((service, idx) => (
             <div
               key={service.number}
-              className="service-item relative py-10 md:py-14 group hover:bg-cream-surface/40 transition-colors duration-300 px-4 -mx-4 rounded-xl will-change-transform"
+              id={`service-${idx}`}
+              className="service-item scroll-mt-28 relative py-10 md:py-14 group hover:bg-cream-surface/40 transition-colors duration-300 px-4 -mx-4 rounded-xl will-change-transform"
             >
               {/* Animated Top Structural Divider */}
               <div className="service-divider absolute top-0 left-4 right-4 h-[1px] bg-charcoal/15 group-hover:bg-coral/40 transition-colors duration-300 will-change-transform" />

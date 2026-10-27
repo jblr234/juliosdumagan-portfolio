@@ -110,7 +110,7 @@ export default function About() {
         </div>
 
         {/* Editorial Story Layout */}
-        <div className="about-grid grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div id="about-bio" className="about-grid scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
           
           {/* Portrait & Credentials Column (5 cols) */}
           <div className="about-left-col will-change-transform lg:col-span-5 space-y-6">
@@ -158,7 +158,7 @@ export default function About() {
             </div>
 
             {/* Skills Taxonomy */}
-            <div className="pt-6 border-t border-charcoal/15 space-y-4">
+            <div id="about-stack" className="scroll-mt-28 pt-6 border-t border-charcoal/15 space-y-4">
               <span className="text-xs font-mono uppercase tracking-widest text-muted block">
                 Engineering &amp; Design Taxonomy
               </span>
@@ -197,7 +197,7 @@ export default function About() {
         </div>
 
         {/* Stats Grid */}
-        <div className="stats-container grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pt-12 border-t border-charcoal/15">
+        <div id="about-stats" className="stats-container scroll-mt-28 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pt-12 border-t border-charcoal/15">
           {personalData.stats.map((stat, idx) => (
             <div
               key={idx}
